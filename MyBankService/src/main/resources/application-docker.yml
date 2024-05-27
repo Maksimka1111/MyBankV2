@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: bank-service
+  datasource:
+    url: jdbc:postgresql://database:5432/postgres
+    username: postgres
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        globally_quoted_identifiers: true

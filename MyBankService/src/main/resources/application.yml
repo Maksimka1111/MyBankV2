@@ -1,0 +1,20 @@
+server:
+  port: 9010
+
+spring:
+  application:
+    name: bank-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/MyBank
+    username: postgres
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        globally_quoted_identifiers: true
+logging:
+  level:
+    org.springframework.security: trace

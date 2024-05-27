@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USERNAME=postgres
+    ports:
+        - "7777:5432"
+
+  bank-service:
+    build: ./MyBankService
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+        - "9010:80"
+    depends_on:
+      - database  
+
+  auth-service:
+    build: ./SprignReactOauth2
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+        - "9000:80"
+    depends_on:
+      - database
+  
+  front-service:
+    build: ./MyBankFront/my-bank-front
+    ports:
+        - "3000:80"
+    depends_on:
+      - bank-service
+      - auth-service
