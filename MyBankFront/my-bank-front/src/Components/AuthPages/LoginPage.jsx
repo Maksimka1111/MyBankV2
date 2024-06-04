@@ -29,7 +29,7 @@ const LoginPage = () => {
         try{
         const result = await axios({
             method: 'post',
-            url: 'http://localhost:9000/jwt/tokens'
+            url: 'http://158.160.85.202:9000/jwt/tokens'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -41,7 +41,7 @@ const LoginPage = () => {
         const jwtAuth = 'Bearer ' + tokens.accessToken;
         const test = await axios({
             method: 'get',
-            url: 'http://localhost:9000/test'
+            url: 'http://158.160.85.202:9000/test'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -99,13 +99,13 @@ const LoginPage = () => {
                                 username: JSON.stringify(decode.email),
                                 password: JSON.stringify(decode.email + "1"),
                             }
-                            await axios.post("http://localhost:9000/api/auth/register", usr).then(r => console.log(r))
+                            await axios.post("http://158.160.85.202:9000/api/auth/register", usr).then(r => console.log(r))
 
                             const basicAuth = 'Basic ' + btoa(usr.username + ':' + usr.password);
                             let tokens;
                             await axios({
                                 method: 'post',
-                                url: 'http://localhost:9000/jwt/tokens'
+                                url: 'http://158.160.85.202:9000/jwt/tokens'
                                 ,
                                 headers: {
                                     "Content-type": "application/json; charset=UTF-8",
