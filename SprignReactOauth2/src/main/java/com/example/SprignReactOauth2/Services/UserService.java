@@ -43,6 +43,7 @@ public class UserService implements UserDetailsService {
         role.setId(user.getId());
         role.setRole("USER");
         user.getRolesList().add(role);
+        user.setUsername(user.getUsername());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         var usr = userRepository.save(user);

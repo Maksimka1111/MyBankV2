@@ -24,6 +24,8 @@ const LoginPage = () => {
         e.preventDefault();
         const basicAuth = 'Basic ' + btoa(user.username + ':' + user.password);
         let tokens;
+        console.log(user.username);
+        console.log(user.password);
         try{
         const result = await axios({
             method: 'post',

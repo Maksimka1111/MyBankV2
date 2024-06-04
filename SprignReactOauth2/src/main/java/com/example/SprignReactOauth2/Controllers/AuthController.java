@@ -28,11 +28,12 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody MyUser user){
-//        if (userService.findUser(user) == null){
-            return ResponseEntity.ok(userService.save(user).getUsername());
-        //}
-        //return ResponseEntity.ok("Exists");
+    public ResponseEntity register(@RequestParam("username") String username,
+                                   @RequestParam("password") String password){
+        var user = new MyUser();
+        user.setUsername(username);
+        user.setPassword(password);
+        return ResponseEntity.ok(userService.save(user).getUsername());
     }
     @GetMapping("/login")
     public String loginPage() {
@@ -43,9 +44,7 @@ public class AuthController {
     public String loginUser(@ModelAttribute("userForm") @Validated MyUser userForm, BindingResult bindingResult)
             throws PasswordNotMatchesException {
         var user = userService.findUser(userForm);
-        System.out.println(userForm.getPassword());
-        System.out.println(user.getPassword());
-        System.out.println(passwordEncoder.matches(userForm.getPassword(), user.getPassword()));
+        System.out.println("USER FOUND");
         if (bindingResult.hasErrors() || user == null) {
             throw new UsernameNotFoundException("User not found");
         }

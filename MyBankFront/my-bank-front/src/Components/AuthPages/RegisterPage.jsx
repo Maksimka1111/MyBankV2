@@ -3,7 +3,7 @@ import {Button, Container, Form} from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const RegisterPage = (props) => {
+const RegisterPage = () => {
     let navigate = useNavigate();
 
     const [user, setUser] = useState({
@@ -20,8 +20,18 @@ const RegisterPage = (props) => {
 
     const register = async (e) => {
         e.preventDefault();
-        console.log(user);
-        const result = await axios.post("http://localhost:9000/api/auth/register", user);
+        const result = await axios({
+            method: 'post',
+            url: 'http://localhost:9000/api/auth/register'
+            ,
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+            params: {
+                username: user.name,
+                password: user.password
+            }
+        });
         if (result.data === "Exists")
             console.log(1);
         else{

@@ -4,8 +4,8 @@ services:
   database:
     image: postgres
     environment:
-      - POSTGRES_PASSWORD=root
       - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=root
     ports:
         - "7777:5432"
 
@@ -14,7 +14,7 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     ports:
-        - "9010:80"
+        - "9010:9010"
     depends_on:
       - database  
 
@@ -23,14 +23,14 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     ports:
-        - "9000:80"
+        - "9000:9000"
     depends_on:
       - database
   
   front-service:
     build: ./MyBankFront/my-bank-front
     ports:
-        - "3000:80"
+        - "3000:3000"
     depends_on:
       - bank-service
       - auth-service
