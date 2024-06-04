@@ -25,7 +25,7 @@ const CreditCreation = () => {
         e.preventDefault();
         await axios({
             method: 'post',
-            url: 'http://localhost:9010/api/credits/createCredit',
+            url: 'http://158.160.85.202:9010/api/credits/createCredit',
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
             },

@@ -24,7 +24,7 @@ const AdminPanel = () => {
 
         const result = await axios({
             method: 'get',
-            url: 'http://localhost:9010/api/admin/getUser'
+            url: 'http://158.160.85.202:9010/api/admin/getUser'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -44,7 +44,7 @@ const AdminPanel = () => {
     const removeUser = async () => {
         const result1 = await axios({
             method: 'delete',
-            url: 'http://localhost:9010/api/admin/delUser'
+            url: 'http://158.160.85.202:9010/api/admin/delUser'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -57,7 +57,7 @@ const AdminPanel = () => {
         const jwtAuth = "Bearer " + JSON.parse(localStorage.getItem("accessToken")).value;
         const result2 = await axios({
             method: 'delete',
-            url: 'http://localhost:9000/api/auth/delUser'
+            url: 'http://158.160.85.202:9000/api/auth/delUser'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -78,7 +78,7 @@ const AdminPanel = () => {
         e.preventDefault();
         const result = await axios({
             method: 'post',
-            url: 'http://localhost:9010/api/admin/addMoney'
+            url: 'http://158.160.85.202:9010/api/admin/addMoney'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
