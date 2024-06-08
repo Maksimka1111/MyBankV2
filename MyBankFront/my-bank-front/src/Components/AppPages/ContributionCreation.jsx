@@ -28,7 +28,7 @@ const ContributionCreation = () => {
         console.log(contribution.FIO);
         await axios({
             method: 'post',
-            url: 'http://158.160.85.202:9010/api/contributions/createContribution',
+            url: 'http://localhost:9010/api/contributions/createContribution',
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
             },

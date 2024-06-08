@@ -7,8 +7,10 @@ import LogoutButton from "./AuthPages/LogoutButton";
 
 const Navigation = () => {
     useEffect(() => {
-        if (localStorage.getItem("accessToken") === null)
+        if (localStorage.getItem("accessToken") === null) {
             localStorage.setItem("isLogin", "false");
+            localStorage.setItem("isAdmin", "false");
+        }
         else {
             localStorage.setItem("isLogin", "true");
         }

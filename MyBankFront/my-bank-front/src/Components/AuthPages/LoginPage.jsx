@@ -29,7 +29,7 @@ const LoginPage = () => {
         try{
         const result = await axios({
             method: 'post',
-            url: 'http://158.160.85.202:9000/jwt/tokens'
+            url: 'http://localhost:9000/jwt/tokens'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -41,19 +41,39 @@ const LoginPage = () => {
         const jwtAuth = 'Bearer ' + tokens.accessToken;
         const test = await axios({
             method: 'get',
-            url: 'http://158.160.85.202:9000/test'
+            url: 'http://localhost:9000/test'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
                 "Authorization" : jwtAuth,
             }
         });
+        let checkAdmin;
+        try {
+            checkAdmin = await axios({
+                method: 'get',
+                url: 'http://localhost:9000/api/auth/checkAccessAdmin'
+                ,
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                    "Authorization": jwtAuth,
+                }
+            });
+        } catch (e){
+            checkAdmin = "fail";
+        }
         console.log(test.data);
         if (test.data === "ok") {
             setTokens(tokens);
 
             localStorage.setItem("isLogin", "true");
             localStorage.setItem("username", user.username);
+            if (checkAdmin.data === 'status: ok')
+                localStorage.setItem("isAdmin", "true");
+            else{
+                localStorage.setItem("isAdmin", "false");
+            }
+            console.log(localStorage.getItem("isAdmin"))
 
              navigate("/");
              window.location.reload();
@@ -99,13 +119,13 @@ const LoginPage = () => {
                                 username: JSON.stringify(decode.email),
                                 password: JSON.stringify(decode.email + "1"),
                             }
-                            await axios.post("http://158.160.85.202:9000/api/auth/register", usr).then(r => console.log(r))
+                            await axios.post("http://localhost:9000/api/auth/register", usr).then(r => console.log(r))
 
                             const basicAuth = 'Basic ' + btoa(usr.username + ':' + usr.password);
                             let tokens;
                             await axios({
                                 method: 'post',
-                                url: 'http://158.160.85.202:9000/jwt/tokens'
+                                url: 'http://localhost:9000/jwt/tokens'
                                 ,
                                 headers: {
                                     "Content-type": "application/json; charset=UTF-8",

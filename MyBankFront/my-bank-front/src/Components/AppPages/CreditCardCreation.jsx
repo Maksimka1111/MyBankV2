@@ -26,7 +26,7 @@ const CreditCardCreation = () => {
         e.preventDefault();
         await axios({
             method: 'post',
-            url: 'http://158.160.85.202:9010/api/cards/createCreditCard',
+            url: 'http://localhost:9010/api/cards/createCreditCard',
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
             },

@@ -39,7 +39,7 @@ export const checkAccessTokenAlive = async () => {
         let tokens;
         await axios({
             method: 'post',
-            url: 'http://158.160.85.202:9000/jwt/refresh'
+            url: 'http://localhost:9000/jwt/refresh'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",

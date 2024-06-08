@@ -22,7 +22,7 @@ const RegisterPage = () => {
         e.preventDefault();
         const result = await axios({
             method: 'post',
-            url: 'http://158.160.85.202:9000/api/auth/register'
+            url: 'http://localhost:9000/api/auth/register'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -37,7 +37,7 @@ const RegisterPage = () => {
         else{
             await axios({
                 method: 'post',
-                url: 'http://158.160.85.202:9010/api/user/fillUserInfo'
+                url: 'http://localhost:9010/api/user/fillUserInfo'
                 ,
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",

@@ -17,7 +17,7 @@ const Profile = () => {
     const getUserInfo = async () => {
         const result = await axios({
             method: 'get',
-            url: 'http://158.160.85.202:9010/api/user/getUserInfo'
+            url: 'http://localhost:9010/api/user/getUserInfo'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -34,7 +34,7 @@ const Profile = () => {
     const removeCard = async (number) => {
         await axios({
             method: 'delete',
-            url: 'http://158.160.85.202:9010/api/cards/removeCard'
+            url: 'http://localhost:9010/api/cards/removeCard'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",

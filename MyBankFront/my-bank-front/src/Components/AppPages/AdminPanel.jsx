@@ -78,7 +78,7 @@ const AdminPanel = () => {
         e.preventDefault();
         const result = await axios({
             method: 'post',
-            url: 'http://158.160.85.202:9010/api/admin/addMoney'
+            url: 'http://localhost:9010/api/admin/addMoney'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
