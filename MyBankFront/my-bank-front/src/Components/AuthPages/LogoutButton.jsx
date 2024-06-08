@@ -11,7 +11,7 @@ const LoginButton = (props) => {
         const refreshTokenAuth = 'Bearer ' + JSON.parse(localStorage.getItem("refreshToken")).value;
         await axios({
             method: 'post',
-            url: 'http://localhost:9000/jwt/logout'
+            url: 'http://158.160.85.202:9000/jwt/logout'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",

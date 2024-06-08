@@ -3,7 +3,6 @@ package com.example.SprignReactOauth2.JwtProduction;
 import com.example.SprignReactOauth2.JwtProduction.TokenEntities.Token;
 import com.example.SprignReactOauth2.JwtProduction.TokenEntities.TokenUser;
 import com.example.SprignReactOauth2.JwtProduction.TokenRepositories.DeactivatedTokenRepository;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.AuthenticationUserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;

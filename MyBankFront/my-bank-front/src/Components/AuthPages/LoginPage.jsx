@@ -55,8 +55,8 @@ const LoginPage = () => {
             localStorage.setItem("isLogin", "true");
             localStorage.setItem("username", user.username);
 
-            navigate("/");
-            window.location.reload();
+             navigate("/");
+             window.location.reload();
         } else{
             alert("Incorrect username or password!");
         }

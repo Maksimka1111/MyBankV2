@@ -7,7 +7,7 @@ const check = async () => {
     const jwtAuth = "Bearer " + JSON.parse(localStorage.getItem("accessToken")).value;
     const result = await axios({
         method: 'get',
-        url: 'http://localhost:9000/api/auth/checkAccessAdmin'
+        url: 'http://158.160.85.202:9000/api/auth/checkAccessAdmin'
         ,
         headers: {
             "Content-type": "application/json; charset=UTF-8",
