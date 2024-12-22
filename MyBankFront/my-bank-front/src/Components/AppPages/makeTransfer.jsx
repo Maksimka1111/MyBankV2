@@ -16,7 +16,7 @@ const MakeTransfer = () =>{
     const transfer = async () => {
         const result = await axios({
             method: 'post',
-            url: 'http://158.160.85.202:9010/api/cards/makeTransfer'
+            url: 'http://51.250.77.153:9010/api/cards/makeTransfer'
             ,
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
